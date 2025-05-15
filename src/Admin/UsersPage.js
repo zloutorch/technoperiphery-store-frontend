@@ -3,13 +3,15 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import './ProductsPage.css'; // используем те же стили
+const api = process.env.REACT_APP_API_URL;
 
 function UsersPage() {
   const [users, setUsers] = useState([]);
 
   // 🔁 Отдельная функция для загрузки пользователей
   const fetchUsers = () => {
-    axios.get('http://localhost:5000/api/admin/users')
+    axios.get(`${api}/api/admin/users`)
+
       .then(res => setUsers(res.data))
       .catch(err => console.error('Ошибка загрузки пользователей:', err));
   };
@@ -36,7 +38,8 @@ function UsersPage() {
       buttonsStyling: false
     }).then(result => {
       if (result.isConfirmed) {
-        axios.post(`http://localhost:5000/api/admin/verify-user/${user.id}`)
+        axios.post(`${api}/api/admin/verify-user/${user.id}`)
+
           .then(() => {
             fetchUsers(); // Обновляем таблицу после подтверждения
             Swal.fire({
@@ -80,7 +83,8 @@ function UsersPage() {
       buttonsStyling: false
     }).then(result => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/api/admin/delete-user/${user.id}`)
+        axios.delete(`${api}/api/admin/delete-user/${user.id}`)
+
           .then(() => {
             fetchUsers(); // Обновляем таблицу после удаления
             Swal.fire({

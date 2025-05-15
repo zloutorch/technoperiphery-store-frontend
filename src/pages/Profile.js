@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Profile.css';
+const api = process.env.REACT_APP_API_URL;
 
 function Profile() {
   const [orders, setOrders] = useState([]);
@@ -10,7 +11,10 @@ function Profile() {
   useEffect(() => {
     if (!userId) return;
 
-    fetch(`http://localhost:5000/orders/user/${userId}`)
+   const api = process.env.REACT_APP_API_URL;
+
+fetch(`${api}/orders/user/${userId}`)
+
       .then(res => res.json())
       .then(data => setOrders(data))
       .catch(err => console.error('Ошибка загрузки заказов:', err));

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './Register.css';
+const api = process.env.REACT_APP_API_URL;
 
 function Register() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', password: '' });
@@ -31,7 +32,8 @@ function Register() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/register', {
+     const res = await fetch(`${api}/register`, 
+ {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)

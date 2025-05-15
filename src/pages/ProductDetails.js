@@ -3,14 +3,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import './ProductDetails.css';
 
+import './ProductDetails.css';
+const api = process.env.REACT_APP_API_URL;
 function ProductDetails({ addToCart }) {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products`)
+   const api = process.env.REACT_APP_API_URL;
+
+fetch(`${api}/products`)
+
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((p) => p.id === parseInt(id));

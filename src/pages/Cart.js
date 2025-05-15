@@ -1,8 +1,10 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
-import './Cart.css';
 
+
+import './Cart.css';
+const api = process.env.REACT_APP_API_URL;
 export default function Cart({ cartItems, setCartItems }) {
   const groupedItems = cartItems.reduce((acc, item) => {
     const found = acc.find(i => i.id === item.id);
@@ -78,7 +80,10 @@ export default function Cart({ cartItems, setCartItems }) {
       quantity: item.quantity
     }));
 
-    fetch('http://localhost:5000/orders', {
+   const api = process.env.REACT_APP_API_URL;
+
+fetch(`${api}/orders`, 
+ {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './OrdersPage.css';
+const api = process.env.REACT_APP_API_URL;
 
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/admin/orders')
+    axios.get(`${api}/api/admin/orders`)
+
       .then(response => setOrders(response.data))
       .catch(error => console.error('Ошибка загрузки заказов:', error));
   }, []);
 
   const handleStatusChange = (orderId, newStatus) => {
-    axios.post(`http://localhost:5000/api/admin/orders/${orderId}/status`, { status: newStatus })
+  axios.post(`${api}/api/admin/orders/${orderId}/status`, { status: newStatus })
+
       .then(() => {
         setOrders(prev =>
           prev.map(order =>
@@ -28,7 +31,8 @@ function OrdersPage() {
   };
 
   const sendInvoice = (orderId) => {
-    axios.post(`http://localhost:5000/api/admin/orders/${orderId}/send-invoice`)
+   axios.post(`${api}/api/admin/orders/${orderId}/send-invoice`)
+
       .then(() => {
         Swal.fire({
           title: '✅ Успешно!',
@@ -77,12 +81,11 @@ function OrdersPage() {
     if (formValues) {
       try {
         const { start, end } = formValues;
-        const res = await axios.post(`http://localhost:5000/api/admin/generate-report`, {
+   const res = await axios.post(`${api}/api/admin/generate-report`, {
   from: start,
   to: end
-}, {
-  responseType: 'blob'
-});
+}, { responseType: 'blob' });
+
 
 
         const blob = new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });

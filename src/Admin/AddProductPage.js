@@ -3,6 +3,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import './AddProductPage.css';
+const api = process.env.REACT_APP_API_URL;
+
 
 function AddProductPage() {
   const [form, setForm] = useState({
@@ -19,8 +21,10 @@ function AddProductPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+const api = process.env.REACT_APP_API_URL;
 
-    axios.post('http://localhost:5000/api/admin/add-product', form)
+axios.post(`${api}/api/admin/add-product`, form)
+
       .then(() => {
         Swal.fire({
           icon: 'success',

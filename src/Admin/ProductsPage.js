@@ -3,12 +3,14 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import './ProductsPage.css';
+const api = process.env.REACT_APP_API_URL;
 
 function ProductsPage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/admin/products')
+    axios.get(`${api}/api/admin/products`)
+
       .then(response => setProducts(response.data))
       .catch(error => console.error(error));
   }, []);
@@ -31,7 +33,8 @@ function ProductsPage() {
       buttonsStyling: false
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/api/admin/product/${productId}`)
+        axios.delete(`${api}/api/admin/product/${productId}`)
+
           .then(() => {
             setProducts(prev => prev.filter(p => p.id !== productId));
             Swal.fire({
@@ -92,7 +95,8 @@ function ProductsPage() {
   }).then(result => {
     if (result.isConfirmed) {
       const updatedProduct = result.value;
-      axios.put(`http://localhost:5000/api/admin/product/${product.id}`, updatedProduct)
+     axios.put(`${api}/api/admin/product/${product.id}`, updatedProduct)
+
         .then(() => {
           setProducts(prev =>
             prev.map(p => p.id === product.id ? { ...p, ...updatedProduct } : p)

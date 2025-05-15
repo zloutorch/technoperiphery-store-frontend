@@ -4,6 +4,7 @@ import 'rc-slider/assets/index.css';
 import './Shop.css';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+const api = process.env.REACT_APP_API_URL;
 
 function Shop({ addToCart }) {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,8 @@ function Shop({ addToCart }) {
   const [priceRange, setPriceRange] = useState([0, 30000]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch(`${api}/products`)
+
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error('Ошибка загрузки:', err));

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import './Login.css';
 
+import './Login.css';
+const api = process.env.REACT_APP_API_URL;
 function Login({ onLogin }) {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +27,9 @@ function Login({ onLogin }) {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/login', {
+      const api = process.env.REACT_APP_API_URL;
+const res = await fetch(`${api}/login`, {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ identifier, password }),
