@@ -1,0 +1,119 @@
+.login-container {
+  background: rgba(15, 15, 26, 0.6); /* Прозрачный фон */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px); /* Размытие стекла */
+  -webkit-backdrop-filter: blur(10px); /* Для поддержки в Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Лёгкая белая рамка */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 80px auto;
+  transition: all 0.3s ease;
+}
+
+
+.login-title {
+  color: #00c8ff;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #00c8ff;
+}
+
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  background: #161623;
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: inset 6px 6px 10px #0e0e17, inset -6px -6px 10px #1e1e2f;
+  color: #fff;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.login-form input:focus {
+  box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+}
+
+.login-form button {
+  background: #00c8ff;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 6px 6px 10px #0e0e17, -6px -6px 10px #1e1e2f;
+  transition: all 0.3s ease;
+}
+
+.login-form button:hover {
+  background: #00e6ff;
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.remember-me {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #00c8ff;
+  user-select: none;
+}
+
+.remember-me input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #00c8ff;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.remember-me input:checked {
+  background-color: #00c8ff;
+  box-shadow: 0 0 5px #00c8ff;
+}
+
+.remember-me input:hover {
+  border-color: #00e0ff;
+  box-shadow: 0 0 5px #00e0ff;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.login-container {
+  animation: fadeInUp 0.8s ease forwards;
+}

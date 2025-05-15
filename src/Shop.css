@@ -1,0 +1,149 @@
+.shop-container {
+    padding: 30px;
+    color: #fff;
+  }
+  
+  .section-title {
+    color: #00bfff;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Блок фильтров */
+  .filters {
+    background-color: #1a1a2e;
+    border: 1px solid #00bfff;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  
+  .filters select,
+  .filters button {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #00bfff;
+    background: #0f0f1a;
+    color: #00bfff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .filters select:focus,
+  .filters button:hover {
+    background-color: #00bfff;
+    color: #fff;
+  }
+  
+  .price-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #00bfff;
+    font-size: 14px;
+    min-width: 260px;
+  }
+  
+  /* Продукты */
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    animation: fadeIn 0.4s ease-in;
+  }
+  
+  .product-card {
+    border: 1px solid #333;
+    background: #1a1a2e;
+    padding: 15px;
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px rgba(0, 191, 255, 0.6);
+    background-color: #202040;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    font-size: 12px;
+    color: #ccc;
+  }
+  
+  .cart-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .cart-button:hover {
+    background-color: #008ccc;
+  }
+  
+  .reset-btn {
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .reset-btn:hover {
+    background-color: #008ccc;
+  }
+  
+  .no-results {
+    text-align: center;
+    color: #ccc;
+    font-size: 18px;
+    margin-top: 40px;
+    font-style: italic;
+  }
+  
+  /* Анимация fadeIn */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: color 0.2s;
+  }
+  
+  .product-link:hover h3 {
+    color: #00bfff;
+  }
+  

@@ -1,0 +1,219 @@
+.products-container {
+    padding: 30px;
+  }
+  
+  .products-title {
+    color: #00c8ff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00c8ff;
+  }
+  
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a2e;
+    color: white;
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.2);
+    border: 1px solid #333;
+  }
+  
+  .products-table th,
+  .products-table td {
+    padding: 12px 16px;
+    border: 1px solid #333;
+    text-align: left;
+  }
+  
+  .delete-btn {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 0 10px rgba(255, 77, 79, 0.6);
+  }
+  
+  .delete-btn:hover {
+    background-color: #e63b3d;
+  }
+  
+  /* SweetAlert2 */
+  .swal2-dark {
+    border-radius: 16px;
+    box-shadow: 0 0 20px #00c8ff;
+  }
+  
+  .btn-confirm {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 0 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff4d4f;
+  }
+  
+  .btn-cancel {
+    background-color: #3085d6;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin: 0 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #3085d6;
+  }
+  
+  .btn-confirm:hover {
+    background-color: #e63b3d;
+  }
+  
+  .btn-cancel:hover {
+    background-color: #2671c5;
+  }
+  .edit-btn {
+    background-color: #00c8ff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-left: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-btn:hover {
+    background-color: #00a8d6;
+  }
+  
+  .edit-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #111428;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .edit-form h3 {
+    color: #00c8ff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #00c8ff;
+  }
+  
+  .edit-form input,
+  .edit-form textarea {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #1f1f2e;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .edit-form input::placeholder,
+  .edit-form textarea::placeholder {
+    color: #888;
+  }
+  
+  .save-btn {
+    background-color: #00c8ff;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00c8ff;
+  }
+  
+  .cancel-btn {
+    background-color: #666;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 8px #666;
+  }
+  
+  .save-btn:hover {
+    background-color: #00a8d6;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #555;
+  }
+  /* SweetAlert2 кастомизация */
+.swal2-popup.swal2-dark {
+    background-color: #111428 !important;
+    color: #fff !important;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.4);
+    padding: 30px 20px;
+  }
+  
+  .swal2-title {
+    font-size: 24px;
+    color: #00c8ff;
+    text-shadow: 0 0 8px #00c8ff;
+    margin-bottom: 20px;
+  }
+  
+  .swal2-input,
+  .swal2-textarea {
+    background-color: #1f1f2e !important;
+    color: #fff !important;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.1);
+  }
+  
+  .swal2-input::placeholder,
+  .swal2-textarea::placeholder {
+    color: #888 !important;
+  }
+  
+  .swal2-confirm {
+    background-color: #00c8ff !important;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 20px;
+    box-shadow: 0 0 10px #00c8ff;
+    margin-right: 10px;
+  }
+  
+  .swal2-cancel {
+    background-color: #555 !important;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 20px;
+    box-shadow: 0 0 8px #666;
+  }
+  
+  .swal2-confirm:hover {
+    background-color: #00a8d6 !important;
+  }
+  
+  .swal2-cancel:hover {
+    background-color: #444 !important;
+  }
+  

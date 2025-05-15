@@ -1,0 +1,53 @@
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .admin-container {
+    background: #161623;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 15px #0e0e17, -8px -8px 15px #1e1e2f;
+    max-width: 500px;
+    margin: 80px auto;
+    text-align: center;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  .admin-title {
+    color: #00c8ff;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px #00c8ff;
+  }
+  
+  .admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .admin-link {
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: #161623;
+    color: #00c8ff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 4px 4px 8px #0e0e17, -4px -4px 8px #1e1e2f;
+  }
+  
+  .admin-link:hover {
+    background: #00e6ff;
+    color: #000;
+    box-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff;
+    transform: translateY(-2px);
+  }
+  

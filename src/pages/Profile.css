@@ -1,0 +1,200 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.profile-header {
+  margin-bottom: 30px;
+  padding: 10px;
+  text-shadow: 0 0 6px #00c8ff;
+}
+
+.profile-header h2 {
+  font-size: 30px;
+  color: #00c8ff;
+  margin-bottom: 8px;
+}
+
+.profile-header p {
+  font-size: 15px;
+  color: #00c8ff;
+  margin: 3px 0;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.order-card {
+  background-color: #1a1a2e;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+  color: #fff;
+  position: relative;
+  text-align: left;
+}
+
+.order-card .order-info {
+  margin-bottom: 10px;
+}
+
+.order-card .order-info span {
+  display: block;
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.order-total {
+  font-weight: bold;
+  color: #00c8ff;
+  margin-bottom: 10px;
+}
+
+
+
+.empty-text {
+  margin-top: 40px;
+  font-size: 16px;
+  color: #999;
+}
+
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  background-color: #141422;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 12px;
+  transition: background 0.3s;
+}
+
+.order-item:hover {
+  background-color: #1f1f38;
+}
+
+.item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #00c8ff40;
+  box-shadow: 0 0 5px rgba(0, 200, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.item-price {
+  color: #00c8ff;
+  margin-top: 2px;
+}
+
+.order-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  margin-top: 8px;
+  margin-left: 0;         /* по левому краю */
+  margin-bottom: 8px;     /* чтобы отделить от верхнего текста */
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.15);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+  user-select: none;
+  width: fit-content;
+}
+
+
+/* Статусы с иконками и цветами */
+.status-awaiting {
+  color: #00c8ff !important;
+  border-color: rgba(0, 200, 255, 0.3) !important;
+  background-color: rgba(0, 200, 255, 0.08) !important;
+}
+
+
+
+
+.status-shipping {
+  color: #00c8ff;
+  border-color: rgba(0, 200, 255, 0.3);
+  background-color: rgba(0, 200, 255, 0.1);
+}
+
+.status-delivered {
+  color: #4caf50;
+  border-color: rgba(76, 175, 80, 0.3);
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.order-status svg {
+  fill: #00c8ff;
+  width: 16px;
+  height: 16px;
+  opacity: 0.9;
+}
+
+.delete-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.delete-button {
+  padding: 6px 12px;
+  font-size: 14px;
+  background: transparent;
+  color: #ff4d4f;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.delete-button:hover {
+  transform: scale(1.05);
+  color: #ff0000;
+}
+.toggle-button {
+  transition: transform 0.3s;
+}
+
+.toggle-button:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,81 @@
+.orders-container {
+    padding: 30px;
+  }
+  
+  .orders-title {
+    color: #00c8ff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00c8ff;
+  }
+  
+  .orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a2e;
+    color: white;
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.2);
+    border: 1px solid #333;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    padding: 12px 16px;
+    border: 1px solid #333;
+    text-align: left;
+  }
+  .status-select {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+}
+
+.status-awaiting {
+  background-color: #fff8dc;
+  color: #b8860b;
+}
+
+.status-shipping {
+  background-color: #e6f0ff;
+  color: #1e90ff;
+}
+
+.status-delivered {
+  background-color: #e8fbe8;
+  color: #228B22;
+}
+.send-invoice-btn {
+  background-color: #00c8ff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.send-invoice-btn:hover {
+  background-color: #009dd8;
+}
+.report-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0 20px;
+}
+
+.report-button {
+  background-color: #00c8ff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.report-button:hover {
+  background-color: #00a6d6;
+}
