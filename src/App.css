@@ -1,8 +1,9 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0f0f1a;
-  color: #fff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app {
@@ -15,8 +16,9 @@ body {
   align-items: center;
   flex-wrap: wrap;
   padding: 20px;
-  background-color: #1a1a2e;
-  border-bottom: 2px solid #222;
+  background-color: var(--header-bg);
+  border-bottom: 2px solid var(--header-border);
+  transition: background-color 0.3s ease;
 }
 
 .logo-title {
@@ -82,7 +84,6 @@ h1 {
   text-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff;
 }
 
-
 .logout-button {
   background-color: #00c8ff;
   color: white;
@@ -91,7 +92,7 @@ h1 {
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 4px 4px 10px #0e0e17, -4px -4px 10px #1e1e2f;
+  box-shadow: 4px 4px 10px var(--btn-shadow-dark), -4px -4px 10px var(--btn-shadow-light);
   transition: all 0.3s ease;
 }
 
