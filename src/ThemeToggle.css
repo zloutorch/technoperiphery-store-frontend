@@ -1,0 +1,16 @@
+.theme-toggle {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: transparent;
+  border: 2px solid #00c8ff;
+  border-radius: 8px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 16px;
+}
+
+.theme-toggle:hover {
+  background-color: #00c8ff;
+  color: white;
+}

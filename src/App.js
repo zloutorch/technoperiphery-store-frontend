@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -23,12 +23,16 @@ import OrdersPage from './Admin/OrdersPage';
 import ProductsPage from './Admin/ProductsPage';
 import AddProductPage from './Admin/AddProductPage';
 
+import ThemeToggle from './ThemeToggle';
+import { ThemeContext } from './ThemeContext';
+
 import './App.css';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -53,7 +57,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className={`app theme-${theme}`}>
       <header className="header">
         <div className="logo-title">
           <Link to="/" className="logo-link">
@@ -61,24 +65,37 @@ function App() {
           </Link>
           <h1>ТехноПериферия</h1>
         </div>
+
         <nav className="nav-menu">
           <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Главная</NavLink>
-          <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Корзина ({cartItems.length})</NavLink>
+          <NavLink to="/cart" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+            Корзина ({cartItems.length})
+          </NavLink>
           {currentUser ? (
             <>
               {currentUser.isAdmin && (
-                <NavLink to="/admin" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Панель администратора</NavLink>
+                <NavLink to="/admin" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                  Панель администратора
+                </NavLink>
               )}
-              <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Профиль</NavLink>
+              <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                Профиль
+              </NavLink>
               <button onClick={handleLogout} className="nav-link logout-button">Выйти</button>
             </>
           ) : (
             <>
-              <NavLink to="/register" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Регистрация</NavLink>
-              <NavLink to="/login" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Вход</NavLink>
+              <NavLink to="/register" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                Регистрация
+              </NavLink>
+              <NavLink to="/login" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                Вход
+              </NavLink>
             </>
           )}
         </nav>
+
+        <ThemeToggle />
       </header>
 
       <Routes>
