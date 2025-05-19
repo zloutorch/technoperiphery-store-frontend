@@ -56,59 +56,72 @@ function OrdersPage() {
       });
   };
 
-  const handleReportClick = async () => {
-    const { value: formValues } = await Swal.fire({
-      title: 'Сформировать отчёт за период',
-      html:
-        `<input type="date" id="start-date" class="swal2-input" placeholder="Дата с">` +
-        `<input type="date" id="end-date" class="swal2-input" placeholder="Дата по">`,
-      focusConfirm: false,
-      confirmButtonText: 'Скачать отчёт',
-      confirmButtonColor: '#00c8ff',
-      background: '#1a1a2e',
-      color: '#fff',
-      preConfirm: () => {
-        const start = document.getElementById('start-date').value;
-        const end = document.getElementById('end-date').value;
-        if (!start || !end) {
-          Swal.showValidationMessage('Выберите обе даты');
-          return false;
-        }
-        return { start, end };
+const handleReportClick = async () => {
+  const { value: formValues } = await Swal.fire({
+    title: 'Сформировать отчёт',
+    html: `
+      <input type="date" id="start-date" class="swal2-input" placeholder="Дата с">
+      <input type="date" id="end-date" class="swal2-input" placeholder="Дата по">
+      <select id="status" class="swal2-select" style="padding: 10px; border-radius: 6px; margin-top: 10px;">
+        <option value="">Все статусы</option>
+        <option value="Ожидает отправки">Ожидает отправки</option>
+        <option value="В пути">В пути</option>
+        <option value="Доставлено">Доставлено</option>
+      </select>
+    `,
+    focusConfirm: false,
+    confirmButtonText: 'Скачать отчёт',
+    confirmButtonColor: '#00c8ff',
+    background: '#1a1a2e',
+    color: '#fff',
+    preConfirm: () => {
+      const start = document.getElementById('start-date').value;
+      const end = document.getElementById('end-date').value;
+      const status = document.getElementById('status').value;
+
+      if (!start || !end) {
+        Swal.showValidationMessage('Выберите обе даты');
+        return false;
       }
-    });
 
-    if (formValues) {
-      try {
-        const { start, end } = formValues;
-   const res = await axios.post(`${api}/api/admin/generate-report`, {
-  from: start,
-  to: end
-}, { responseType: 'blob' });
-
-
-
-        const blob = new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `Отчёт_${start}_до_${end}.docx`;
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      } catch (err) {
-        console.error('Ошибка при генерации отчёта:', err);
-        Swal.fire({
-          title: 'Ошибка!',
-          text: 'Не удалось сформировать отчёт.',
-          icon: 'error',
-          background: '#1a1a2e',
-          color: '#fff',
-          confirmButtonColor: '#ff4d4f'
-        });
-      }
+      return { start, end, status };
     }
-  };
+  });
+
+  if (formValues) {
+    try {
+      const { start, end, status } = formValues;
+
+      const res = await axios.post(`${api}/api/admin/generate-report`, {
+        from: start,
+        to: end,
+        status: status || null // если пусто — отправляем null
+      }, { responseType: 'blob' });
+
+      const blob = new Blob([res.data], {
+        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      });
+
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Отчёт_${start}_до_${end}${status ? `_(${status})` : ''}.docx`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    } catch (err) {
+      console.error('Ошибка при генерации отчёта:', err);
+      Swal.fire({
+        title: 'Ошибка!',
+        text: 'Не удалось сформировать отчёт.',
+        icon: 'error',
+        background: '#1a1a2e',
+        color: '#fff',
+        confirmButtonColor: '#ff4d4f'
+      });
+    }
+  }
+};
 
   return (
     <div className="orders-container">
