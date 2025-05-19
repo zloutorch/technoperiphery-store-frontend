@@ -129,3 +129,87 @@
 .report-button:hover {
   background-color: var(--invoice-btn-hover);
 }
+/* Стили фильтра статуса (выпадающий select) */
+.status-filter {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid var(--orders-border);
+  background-color: var(--orders-bg);
+  color: var(--orders-title);
+  appearance: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* При фокусе и наведении */
+.status-filter:hover,
+.status-filter:focus {
+  background-color: var(--orders-hover);
+  color: var(--orders-title);
+  outline: none;
+}
+
+/* Стили опций внутри select */
+.status-filter option {
+  background-color: var(--orders-bg);
+  color: var(--orders-title);
+}
+/* SweetAlert2 модалка для светлой и тёмной тем */
+.swal2-popup {
+  border-radius: 16px !important;
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.4) !important;
+  padding: 30px 20px !important;
+  transition: all 0.3s ease;
+}
+
+/* Основной заголовок */
+.swal2-title {
+  font-size: 24px !important;
+  color: #00c8ff !important;
+  text-shadow: 0 0 8px #00c8ff !important;
+  margin-bottom: 20px !important;
+}
+
+/* Поля ввода */
+.swal2-input, .swal2-select {
+  background-color: var(--orders-bg) !important;
+  color: var(--orders-text) !important;
+  border: 1px solid var(--orders-border) !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  box-shadow: 0 0 10px rgba(0, 200, 255, 0.1) !important;
+  font-size: 15px !important;
+}
+
+/* Стрелка внутри select */
+.swal2-select {
+  appearance: none !important;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%2300c8ff' stroke-width='2'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 10px center !important;
+  background-size: 14px 10px !important;
+  padding-right: 30px !important;
+}
+
+/* Кнопки */
+.swal2-confirm {
+  background-color: #00c8ff !important;
+  color: white !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  box-shadow: 0 0 10px #00c8ff !important;
+}
+
+.swal2-confirm:hover {
+  background-color: #00a6d6 !important;
+}
+
+.swal2-cancel {
+  background-color: #999 !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+}
+

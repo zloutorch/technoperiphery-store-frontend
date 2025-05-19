@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './OrdersPage.css';
+
 const api = process.env.REACT_APP_API_URL;
 
 function OrdersPage() {
   const [orders, setOrders] = useState([]);
 
+  const background = getComputedStyle(document.documentElement).getPropertyValue('--orders-bg') || '#fff';
+  const color = getComputedStyle(document.documentElement).getPropertyValue('--orders-text') || '#000';
+
   useEffect(() => {
     axios.get(`${api}/api/admin/orders`)
-
       .then(response => setOrders(response.data))
       .catch(error => console.error('Ошибка загрузки заказов:', error));
   }, []);
 
   const handleStatusChange = (orderId, newStatus) => {
-  axios.post(`${api}/api/admin/orders/${orderId}/status`, { status: newStatus })
-
+    axios.post(`${api}/api/admin/orders/${orderId}/status`, { status: newStatus })
       .then(() => {
         setOrders(prev =>
           prev.map(order =>
@@ -31,15 +33,14 @@ function OrdersPage() {
   };
 
   const sendInvoice = (orderId) => {
-   axios.post(`${api}/api/admin/orders/${orderId}/send-invoice`)
-
+    axios.post(`${api}/api/admin/orders/${orderId}/send-invoice`)
       .then(() => {
         Swal.fire({
           title: '✅ Успешно!',
           text: 'Чек отправлен на почту покупателя.',
           icon: 'success',
-          background: '#1a1a2e',
-          color: '#fff',
+          background,
+          color,
           confirmButtonColor: '#00c8ff'
         });
       })
@@ -49,79 +50,79 @@ function OrdersPage() {
           title: '❌ Не удалось отправить чек',
           text: 'Проверьте SMTP или логи сервера.',
           icon: 'error',
-          background: '#1a1a2e',
-          color: '#fff',
+          background,
+          color,
           confirmButtonColor: '#ff4d4f'
         });
       });
   };
 
-const handleReportClick = async () => {
-  const { value: formValues } = await Swal.fire({
-    title: 'Сформировать отчёт',
-    html: `
-      <input type="date" id="start-date" class="swal2-input" placeholder="Дата с">
-      <input type="date" id="end-date" class="swal2-input" placeholder="Дата по">
-      <select id="status" class="swal2-select" style="padding: 10px; border-radius: 6px; margin-top: 10px;">
-        <option value="">Все статусы</option>
-        <option value="Ожидает отправки">Ожидает отправки</option>
-        <option value="В пути">В пути</option>
-        <option value="Доставлено">Доставлено</option>
-      </select>
-    `,
-    focusConfirm: false,
-    confirmButtonText: 'Скачать отчёт',
-    confirmButtonColor: '#00c8ff',
-    background: '#1a1a2e',
-    color: '#fff',
-    preConfirm: () => {
-      const start = document.getElementById('start-date').value;
-      const end = document.getElementById('end-date').value;
-      const status = document.getElementById('status').value;
+  const handleReportClick = async () => {
+    const { value: formValues } = await Swal.fire({
+      title: 'Сформировать отчёт',
+      html: `
+        <input type="date" id="start-date" class="swal2-input" placeholder="Дата с">
+        <input type="date" id="end-date" class="swal2-input" placeholder="Дата по">
+        <select id="status" class="swal2-select" style="padding: 10px; border-radius: 6px; margin-top: 10px;">
+          <option value="">Все статусы</option>
+          <option value="Ожидает отправки">Ожидает отправки</option>
+          <option value="В пути">В пути</option>
+          <option value="Доставлено">Доставлено</option>
+        </select>
+      `,
+      focusConfirm: false,
+      confirmButtonText: 'Скачать отчёт',
+      confirmButtonColor: '#00c8ff',
+      background,
+      color,
+      preConfirm: () => {
+        const start = document.getElementById('start-date').value;
+        const end = document.getElementById('end-date').value;
+        const status = document.getElementById('status').value;
 
-      if (!start || !end) {
-        Swal.showValidationMessage('Выберите обе даты');
-        return false;
+        if (!start || !end) {
+          Swal.showValidationMessage('Выберите обе даты');
+          return false;
+        }
+
+        return { start, end, status };
       }
+    });
 
-      return { start, end, status };
+    if (formValues) {
+      try {
+        const { start, end, status } = formValues;
+
+        const res = await axios.post(`${api}/api/admin/generate-report`, {
+          from: start,
+          to: end,
+          status: status || null
+        }, { responseType: 'blob' });
+
+        const blob = new Blob([res.data], {
+          type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+        });
+
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `Отчёт_${start}_до_${end}${status ? `_(${status})` : ''}.docx`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } catch (err) {
+        console.error('Ошибка при генерации отчёта:', err);
+        Swal.fire({
+          title: 'Ошибка!',
+          text: 'Не удалось сформировать отчёт.',
+          icon: 'error',
+          background,
+          color,
+          confirmButtonColor: '#ff4d4f'
+        });
+      }
     }
-  });
-
-  if (formValues) {
-    try {
-      const { start, end, status } = formValues;
-
-      const res = await axios.post(`${api}/api/admin/generate-report`, {
-        from: start,
-        to: end,
-        status: status || null // если пусто — отправляем null
-      }, { responseType: 'blob' });
-
-      const blob = new Blob([res.data], {
-        type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-      });
-
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Отчёт_${start}_до_${end}${status ? `_(${status})` : ''}.docx`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    } catch (err) {
-      console.error('Ошибка при генерации отчёта:', err);
-      Swal.fire({
-        title: 'Ошибка!',
-        text: 'Не удалось сформировать отчёт.',
-        icon: 'error',
-        background: '#1a1a2e',
-        color: '#fff',
-        confirmButtonColor: '#ff4d4f'
-      });
-    }
-  }
-};
+  };
 
   return (
     <div className="orders-container">
