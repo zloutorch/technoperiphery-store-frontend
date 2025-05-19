@@ -1,52 +1,101 @@
+:root {
+  --orders-bg: #ffffff;
+  --orders-header-bg: #f0f0f0;
+  --orders-text: #000000;
+  --orders-title: #00c8ff;
+  --orders-border: #ccc;
+  --orders-hover: #f3faff;
+
+  --status-awaiting-bg: #fff8dc;
+  --status-awaiting-color: #b8860b;
+
+  --status-shipping-bg: #e6f0ff;
+  --status-shipping-color: #1e90ff;
+
+  --status-delivered-bg: #e8fbe8;
+  --status-delivered-color: #228B22;
+
+  --invoice-btn-bg: #00c8ff;
+  --invoice-btn-hover: #009dd8;
+}
+
+[data-theme='dark'] {
+  --orders-bg: #1a1a2e;
+  --orders-header-bg: #111428;
+  --orders-text: #ffffff;
+  --orders-title: #00c8ff;
+  --orders-border: #333;
+  --orders-hover: #1f1f38;
+
+  --status-awaiting-bg: #3a3a1c;
+  --status-awaiting-color: #f5d76e;
+
+  --status-shipping-bg: #204060;
+  --status-shipping-color: #5bc0de;
+
+  --status-delivered-bg: #193d1d;
+  --status-delivered-color: #4caf50;
+
+  --invoice-btn-bg: #00c8ff;
+  --invoice-btn-hover: #00a6d6;
+}
+
 .orders-container {
-    padding: 30px;
-  }
-  
-  .orders-title {
-    color: #00c8ff;
-    text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px #00c8ff;
-  }
-  
-  .orders-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #1a1a2e;
-    color: white;
-    box-shadow: 0 0 12px rgba(0, 200, 255, 0.2);
-    border: 1px solid #333;
-  }
-  
-  .orders-table th,
-  .orders-table td {
-    padding: 12px 16px;
-    border: 1px solid #333;
-    text-align: left;
-  }
-  .status-select {
+  padding: 30px;
+}
+
+.orders-title {
+  color: var(--orders-title);
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px var(--orders-title);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--orders-bg);
+  color: var(--orders-text);
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.2);
+  border: 1px solid var(--orders-border);
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px 16px;
+  border: 1px solid var(--orders-border);
+  text-align: left;
+}
+
+.orders-table tr:hover td {
+  background-color: var(--orders-hover);
+}
+
+.status-select {
   padding: 4px 8px;
   border-radius: 6px;
   font-weight: bold;
   border: none;
+  cursor: pointer;
 }
 
 .status-awaiting {
-  background-color: #fff8dc;
-  color: #b8860b;
+  background-color: var(--status-awaiting-bg);
+  color: var(--status-awaiting-color);
 }
 
 .status-shipping {
-  background-color: #e6f0ff;
-  color: #1e90ff;
+  background-color: var(--status-shipping-bg);
+  color: var(--status-shipping-color);
 }
 
 .status-delivered {
-  background-color: #e8fbe8;
-  color: #228B22;
+  background-color: var(--status-delivered-bg);
+  color: var(--status-delivered-color);
 }
+
 .send-invoice-btn {
-  background-color: #00c8ff;
+  background-color: var(--invoice-btn-bg);
   color: white;
   border: none;
   padding: 6px 10px;
@@ -57,8 +106,9 @@
 }
 
 .send-invoice-btn:hover {
-  background-color: #009dd8;
+  background-color: var(--invoice-btn-hover);
 }
+
 .report-button-container {
   display: flex;
   justify-content: flex-end;
@@ -66,7 +116,7 @@
 }
 
 .report-button {
-  background-color: #00c8ff;
+  background-color: var(--invoice-btn-bg);
   border: none;
   padding: 10px 18px;
   border-radius: 8px;
@@ -77,5 +127,5 @@
 }
 
 .report-button:hover {
-  background-color: #00a6d6;
+  background-color: var(--invoice-btn-hover);
 }

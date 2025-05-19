@@ -1,47 +1,65 @@
+:root {
+  --product-text: #000000;
+  --product-subtext: #444;
+  --product-highlight: #00bfff;
+  --product-btn: #00bfff;
+  --product-btn-hover: #008ccc;
+  --product-image-shadow: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] {
+  --product-text: #ffffff;
+  --product-subtext: #ccc;
+  --product-highlight: #00bfff;
+  --product-btn: #00bfff;
+  --product-btn-hover: #008ccc;
+  --product-image-shadow: rgba(0, 191, 255, 0.3);
+}
+
 .product-details {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 40px;
-    gap: 40px;
-    color: #fff;
-  }
-  
-  .product-big-image {
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
-  }
-  
-  .product-info {
-    max-width: 500px;
-  }
-  
-  .product-price {
-    font-size: 22px;
-    font-weight: bold;
-    color: #00bfff;
-    margin-bottom: 10px;
-  }
-  
-  .product-description {
-    color: #ccc;
-    margin-bottom: 20px;
-  }
-  
-  .cart-button {
-    padding: 10px 20px;
-    background-color: #00bfff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .cart-button:hover {
-    background-color: #008ccc;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px;
+  gap: 40px;
+  color: var(--product-text);
+}
+
+.product-big-image {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 0 20px var(--product-image-shadow);
+}
+
+.product-info {
+  max-width: 500px;
+}
+
+.product-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--product-highlight);
+  margin-bottom: 10px;
+}
+
+.product-description {
+  color: var(--product-subtext);
+  margin-bottom: 20px;
+}
+
+.cart-button {
+  padding: 10px 20px;
+  background-color: var(--product-btn);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-button:hover {
+  background-color: var(--product-btn-hover);
+}

@@ -1,93 +1,110 @@
+:root {
+  --form-bg: #ffffff;
+  --form-text: #000000;
+  --form-title-color: #00c8ff;
+  --form-input-bg: #f1f1f1;
+  --form-input-text: #000;
+  --form-box-shadow-inset: inset 4px 4px 8px #e0e0e0, inset -4px -4px 8px #ffffff;
+  --form-box-shadow: 6px 6px 10px #d0d0d0, -6px -6px 10px #f0f0f0;
+  --form-border-radius: 12px;
+  --form-button-bg: #00c8ff;
+  --form-button-hover: #00e6ff;
+  --form-button-text: #fff;
+}
+
+[data-theme="dark"] {
+  --form-bg: #161623;
+  --form-text: #ffffff;
+  --form-title-color: #00c8ff;
+  --form-input-bg: #161623;
+  --form-input-text: #fff;
+  --form-box-shadow-inset: inset 6px 6px 10px #0e0e17, inset -6px -6px 10px #1e1e2f;
+  --form-box-shadow: 6px 6px 10px #0e0e17, -6px -6px 10px #1e1e2f;
+  --form-border-radius: 12px;
+  --form-button-bg: #00c8ff;
+  --form-button-hover: #00e6ff;
+  --form-button-text: #fff;
+}
+
 .add-product-container {
-    max-width: 400px;
-    margin: 40px auto;
-    background-color: #161623;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 8px 8px 15px #0e0e17, -8px -8px 15px #1e1e2f;
-    animation: fadeInUp 0.8s ease forwards;
-  }
-  
-  .add-product-container h2 {
-    text-align: center;
-    color: #00c8ff;
-    margin-bottom: 20px;
-    text-shadow: 0 0 8px #00c8ff;
-  }
-  
-  .add-product-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .add-product-form input,
-  .add-product-form textarea {
-    background: #161623;
-    border: none;
-    outline: none;
-    padding: 12px 15px;
-    border-radius: 12px;
-    box-shadow: inset 6px 6px 10px #0e0e17, inset -6px -6px 10px #1e1e2f;
-    color: #fff;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .add-product-form input:focus,
-  .add-product-form textarea:focus {
-    box-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff;
-  }
-  
-  .add-product-form button {
-    background: #00c8ff;
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    padding: 12px;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 6px 6px 10px #0e0e17, -6px -6px 10px #1e1e2f;
-  }
-  
-  .add-product-form button:hover {
-    background: #00e6ff;
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff;
-  }
-  
-  /* Анимация */
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .add-product-form select {
-    background: #161623;
-    border: none;
-    outline: none;
-    padding: 12px 15px;
-    border-radius: 12px;
-    color: #fff;
-    font-size: 1rem;
-    box-shadow: inset 6px 6px 10px #0e0e17, inset -6px -6px 10px #1e1e2f;
-    transition: all 0.3s ease;
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%2300c8ff' stroke-width='2'/%3E%3C/svg%3E");
+  max-width: 400px;
+  margin: 40px auto;
+  background-color: var(--form-bg);
+  padding: 30px;
+  border-radius: var(--form-border-radius);
+  box-shadow: var(--form-box-shadow);
+  animation: fadeInUp 0.8s ease forwards;
+  color: var(--form-text);
+}
+
+.add-product-container h2 {
+  text-align: center;
+  color: var(--form-title-color);
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px var(--form-title-color);
+}
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.add-product-form input,
+.add-product-form textarea,
+.add-product-form select {
+  background: var(--form-input-bg);
+  border: none;
+  outline: none;
+  padding: 12px 15px;
+  border-radius: var(--form-border-radius);
+  box-shadow: var(--form-box-shadow-inset);
+  color: var(--form-input-text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.add-product-form input:focus,
+.add-product-form textarea:focus,
+.add-product-form select:focus {
+  box-shadow: 0 0 5px var(--form-title-color), 0 0 10px var(--form-title-color);
+}
+
+.add-product-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='14' height='10' viewBox='0 0 14 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%2300c8ff' stroke-width='2'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 15px center;
   background-size: 14px 10px;
   padding-right: 40px;
+}
+
+.add-product-form button {
+  background: var(--form-button-bg);
+  color: var(--form-button-text);
+  border: none;
+  border-radius: var(--form-border-radius);
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--form-box-shadow);
+}
+
+.add-product-form button:hover {
+  background: var(--form-button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--form-button-hover), 0 0 20px var(--form-button-hover);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .add-product-form select:focus {
-    box-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}

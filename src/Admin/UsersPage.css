@@ -1,62 +1,87 @@
+:root {
+  --table-bg: #ffffff;
+  --table-header-bg: #f0f0f0;
+  --table-text: #000000;
+  --table-header-text: #00c8ff;
+  --table-hover-bg: #e9f9ff;
+  --border-top: #ccc;
+  --verify-btn: #00c8ff;
+  --verify-btn-hover: #00e6ff;
+  --delete-btn: #ff4d4d;
+  --delete-btn-hover: #ff1a1a;
+}
+
+[data-theme='dark'] {
+  --table-bg: #131321;
+  --table-header-bg: #1a1a2e;
+  --table-text: #f0f0f0;
+  --table-header-text: #00c8ff;
+  --table-hover-bg: #1c1c33;
+  --border-top: #222;
+  --verify-btn: #00c8ff;
+  --verify-btn-hover: #00e6ff;
+  --delete-btn: #ff4d4d;
+  --delete-btn-hover: #ff1a1a;
+}
+
 .users-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-    box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .users-table th {
-    background-color: #1a1a2e;
-    color: #00c8ff;
-    text-align: left;
-    padding: 12px;
-    font-weight: bold;
-    font-size: 15px;
-  }
-  
-  .users-table td {
-    background-color: #131321;
-    padding: 12px;
-    color: #f0f0f0;
-    border-top: 1px solid #222;
-  }
-  
-  .users-table tr:hover td {
-    background-color: #1c1c33;
-  }
-  
-  .user-action-btn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 14px;
-    margin: 2px;
-    transition: 0.3s ease;
-  }
-  
-  .verify-button {
-    background-color: #00c8ff;
-    color: #fff;
-    box-shadow: 0 0 6px rgba(0, 200, 255, 0.5);
-  }
-  
-  .verify-button:hover {
-    background-color: #00e6ff;
-    box-shadow: 0 0 10px #00e6ff;
-  }
-  
-  .delete-button {
-    background-color: #ff4d4d;
-    color: #fff;
-    box-shadow: 0 0 6px rgba(255, 77, 79, 0.5);
-  }
-  
-  .delete-button:hover {
-    background-color: #ff1a1a;
-    box-shadow: 0 0 10px #ff1a1a;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.users-table th {
+  background-color: var(--table-header-bg);
+  color: var(--table-header-text);
+  text-align: left;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.users-table td {
+  background-color: var(--table-bg);
+  padding: 12px;
+  color: var(--table-text);
+  border-top: 1px solid var(--border-top);
+}
+
+.users-table tr:hover td {
+  background-color: var(--table-hover-bg);
+}
+
+.user-action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 2px;
+  transition: 0.3s ease;
+}
+
+.verify-button {
+  background-color: var(--verify-btn);
+  color: #fff;
+  box-shadow: 0 0 6px rgba(0, 200, 255, 0.5);
+}
+
+.verify-button:hover {
+  background-color: var(--verify-btn-hover);
+  box-shadow: 0 0 10px var(--verify-btn-hover);
+}
+
+.delete-button {
+  background-color: var(--delete-btn);
+  color: #fff;
+  box-shadow: 0 0 6px rgba(255, 77, 79, 0.5);
+}
+
+.delete-button:hover {
+  background-color: var(--delete-btn-hover);
+  box-shadow: 0 0 10px var(--delete-btn-hover);
+}

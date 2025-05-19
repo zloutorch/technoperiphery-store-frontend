@@ -1,3 +1,21 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --header-bg: #f0f0f0;
+  --header-border: #cccccc;
+  --btn-shadow-dark: #dcdcdc;
+  --btn-shadow-light: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f0f1a;
+  --text-color: #ffffff;
+  --header-bg: #1a1a2e;
+  --header-border: #222222;
+  --btn-shadow-dark: #0e0e17;
+  --btn-shadow-light: #1e1e2f;
+}
+
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;

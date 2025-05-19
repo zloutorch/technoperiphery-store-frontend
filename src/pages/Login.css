@@ -1,28 +1,53 @@
+:root {
+  --login-bg: rgba(255, 255, 255, 0.6);
+  --input-bg: #f0f0f5;
+  --input-text: #000;
+  --placeholder-color: #666;
+  --btn-bg: #00c8ff;
+  --btn-hover: #00e6ff;
+  --btn-text: #fff;
+  --outline-glow: #00ffff;
+  --check-border: #00c8ff;
+  --check-hover: #00e0ff;
+}
+
+[data-theme='dark'] {
+  --login-bg: rgba(15, 15, 26, 0.6);
+  --input-bg: #161623;
+  --input-text: #fff;
+  --placeholder-color: #999;
+  --btn-bg: #00c8ff;
+  --btn-hover: #00e6ff;
+  --btn-text: #fff;
+  --outline-glow: #00ffff;
+  --check-border: #00c8ff;
+  --check-hover: #00e0ff;
+}
+
 .login-container {
-  background: rgba(15, 15, 26, 0.6); /* Прозрачный фон */
+  background: var(--login-bg);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px); /* Размытие стекла */
-  -webkit-backdrop-filter: blur(10px); /* Для поддержки в Safari */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Лёгкая белая рамка */
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 400px;
   margin: 80px auto;
   transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
-
 .login-title {
-  color: #00c8ff;
+  color: var(--btn-bg);
   font-weight: bold;
   font-size: 1.8rem;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #00c8ff;
+  text-shadow: 0 0 10px var(--btn-bg);
 }
-
 
 .login-form {
   width: 100%;
@@ -31,28 +56,32 @@
 }
 
 .login-form input {
-  background: #161623;
+  background: var(--input-bg);
   border: none;
   outline: none;
   padding: 12px 15px;
   margin-bottom: 15px;
   border-radius: 12px;
   box-shadow: inset 6px 6px 10px #0e0e17, inset -6px -6px 10px #1e1e2f;
-  color: #fff;
+  color: var(--input-text);
   transition: all 0.3s ease;
   font-size: 1rem;
 }
 
+.login-form input::placeholder {
+  color: var(--placeholder-color);
+}
+
 .login-form input:focus {
-  box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  box-shadow: 0 0 5px var(--outline-glow), 0 0 10px var(--outline-glow);
 }
 
 .login-form button {
-  background: #00c8ff;
+  background: var(--btn-bg);
   border: none;
   border-radius: 12px;
   padding: 12px;
-  color: #fff;
+  color: var(--btn-text);
   font-weight: bold;
   font-size: 1rem;
   margin-top: 10px;
@@ -62,9 +91,9 @@
 }
 
 .login-form button:hover {
-  background: #00e6ff;
+  background: var(--btn-hover);
   transform: translateY(-3px);
-  box-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff;
+  box-shadow: 0 0 10px var(--btn-hover), 0 0 20px var(--btn-hover);
 }
 
 .error {
@@ -79,7 +108,7 @@
   align-items: center;
   gap: 10px;
   font-size: 0.9rem;
-  color: #00c8ff;
+  color: var(--btn-bg);
   user-select: none;
 }
 
@@ -87,7 +116,7 @@
   appearance: none;
   width: 18px;
   height: 18px;
-  border: 2px solid #00c8ff;
+  border: 2px solid var(--check-border);
   border-radius: 4px;
   background-color: transparent;
   cursor: pointer;
@@ -95,13 +124,13 @@
 }
 
 .remember-me input:checked {
-  background-color: #00c8ff;
-  box-shadow: 0 0 5px #00c8ff;
+  background-color: var(--check-border);
+  box-shadow: 0 0 5px var(--check-border);
 }
 
 .remember-me input:hover {
-  border-color: #00e0ff;
-  box-shadow: 0 0 5px #00e0ff;
+  border-color: var(--check-hover);
+  box-shadow: 0 0 5px var(--check-hover);
 }
 
 @keyframes fadeInUp {
@@ -113,7 +142,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-.login-container {
-  animation: fadeInUp 0.8s ease forwards;
 }

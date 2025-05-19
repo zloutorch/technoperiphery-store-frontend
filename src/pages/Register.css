@@ -1,8 +1,30 @@
+:root {
+  --bg-blur: rgba(255, 255, 255, 0.6);
+  --input-bg: #f0f0f5;
+  --input-text: #000;
+  --input-placeholder: #666;
+  --btn-bg: #00c8ff;
+  --btn-text: #fff;
+  --error-color: #ff4d4d;
+  --message-color: #ff6b6b;
+}
+
+[data-theme='dark'] {
+  --bg-blur: rgba(15, 15, 26, 0.6);
+  --input-bg: #1f1f2f;
+  --input-text: #fff;
+  --input-placeholder: #999;
+  --btn-bg: #00c8ff;
+  --btn-text: #fff;
+  --error-color: #ff4d4d;
+  --message-color: #ff6b6b;
+}
+
 .register-container {
-  background: rgba(15, 15, 26, 0.6);
+  background: var(--bg-blur);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -35,10 +57,10 @@
   padding: 12px 15px;
   border-radius: 10px;
   border: none;
-  background-color: #1f1f2f;
-  color: white;
+  background-color: var(--input-bg);
+  color: var(--input-text);
   font-size: 1rem;
-  box-shadow: inset 6px 6px 10px #0e0e17, inset -6px -6px 10px #1e1e2f;
+  box-shadow: inset 6px 6px 10px rgba(0, 0, 0, 0.1), inset -6px -6px 10px rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
 }
 
@@ -48,20 +70,20 @@
 }
 
 .register-form input::placeholder {
-  color: #999;
+  color: var(--input-placeholder);
 }
 
 .register-form button {
-  background: #00c8ff;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   border: none;
   border-radius: 12px;
   padding: 12px;
-  color: #fff;
   font-weight: bold;
   font-size: 1rem;
   margin-top: 10px;
   cursor: pointer;
-  box-shadow: 6px 6px 10px #0e0e17, -6px -6px 10px #1e1e2f;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2), -6px -6px 10px rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -78,7 +100,7 @@
 }
 
 .error {
-  color: #ff4d4d;
+  color: var(--error-color);
   font-size: 13px;
   margin-top: -10px;
   margin-bottom: 10px;
@@ -88,7 +110,7 @@
 .message {
   margin-top: 10px;
   text-align: center;
-  color: #ff6b6b;
+  color: var(--message-color);
 }
 
 @keyframes fadeInUp {
